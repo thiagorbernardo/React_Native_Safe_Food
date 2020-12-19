@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "ReactHealth-tvOS.app"
-               BlueprintName = "ReactHealth-tvOS"
-               ReferencedContainer = "container:ReactHealth.xcodeproj">
+               BuildableName = "SafeFood-tvOS.app"
+               BlueprintName = "SafeFood-tvOS"
+               ReferencedContainer = "container:SafeFood.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "ReactHealth-tvOSTests.xctest"
-               BlueprintName = "ReactHealth-tvOSTests"
-               ReferencedContainer = "container:ReactHealth.xcodeproj">
+               BuildableName = "SafeFood-tvOSTests.xctest"
+               BlueprintName = "SafeFood-tvOSTests"
+               ReferencedContainer = "container:SafeFood.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "ReactHealth-tvOS.app"
-            BlueprintName = "ReactHealth-tvOS"
-            ReferencedContainer = "container:ReactHealth.xcodeproj">
+            BuildableName = "SafeFood-tvOS.app"
+            BlueprintName = "SafeFood-tvOS"
+            ReferencedContainer = "container:SafeFood.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "ReactHealth-tvOS.app"
-            BlueprintName = "ReactHealth-tvOS"
-            ReferencedContainer = "container:ReactHealth.xcodeproj">
+            BuildableName = "SafeFood-tvOS.app"
+            BlueprintName = "SafeFood-tvOS"
+            ReferencedContainer = "container:SafeFood.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
