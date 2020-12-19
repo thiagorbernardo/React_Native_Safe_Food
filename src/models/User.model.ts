@@ -5,18 +5,16 @@ export interface User {
   height?: number;
   weight?: number;
   birthday: string;
-  medicines: Medicine[];
+  medicines: Food[];
 }
 
-export interface Medicine {
+export interface Food {
   id: string;
   key: number;
   name: string;
-  specs: string;
-  hours: string;
-  description: string;
-  tookMed?: boolean;
-  timestamp?: number;
+  price: string;
+  category: string;
+  img: string;
 };
 
 export interface DailyMedicine {
@@ -25,5 +23,5 @@ export interface DailyMedicine {
   weight?: number;
   email: string;
   date: string;
-  medicines: Medicine[];
+  medicines: Food[];
 }

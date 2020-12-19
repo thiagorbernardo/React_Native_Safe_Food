@@ -1,11 +1,17 @@
 /* This file will handle screen navigations */
 import React from 'react';
-import {SafeAreaView, ScrollView, StatusBar, StyleSheet} from 'react-native';
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import TopBar from '../components/TopBar';
 
 import {AppTheme} from '../theme/App.theme';
-import DrugsScreen from './MainScreen';
+import FoodScreen from './FoodScreen';
 
 export default function HomeScreen() {
   return (
@@ -17,8 +23,9 @@ export default function HomeScreen() {
           <LinearGradient
             colors={AppTheme.backgroundGradientHome}
             style={{flex: 1}}>
-            <ScrollView contentInsetAdjustmentBehavior="automatic"></ScrollView>
-            <DrugsScreen></DrugsScreen>
+            <ScrollView contentInsetAdjustmentBehavior="automatic">
+              <FoodScreen></FoodScreen>
+            </ScrollView>
           </LinearGradient>
         </>
       </SafeAreaView>
@@ -29,5 +36,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
+    justifyContent: 'flex-start',
   },
 });

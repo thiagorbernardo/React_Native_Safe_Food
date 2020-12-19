@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {IconButton} from 'react-native-paper';
 import LottieView from 'lottie-react-native';
 import { AppTheme } from '../theme/App.theme';
@@ -10,8 +10,9 @@ const TopBar = () => {
       <IconButton icon="menu"></IconButton>
       {/* <Text style={styles.title}>{props.title}</Text> */}
       {/* <Image style={styles.avatar} source={require('../assets/img/avatar.png')}/> */}
+      <Text style={styles.title}>Gaeli</Text>
       <LottieView
-        source={require('../assets/lottie/avocado-healthy.json')}
+        source={require('../assets/lottie/healthy-food.json')}
         autoPlay
         resizeMode="cover"
         style={styles.avatar}
@@ -34,13 +35,13 @@ const styles = StyleSheet.create({
     width: 65,
     height: 65,
     justifyContent: 'flex-end',
-    marginRight: 1,
-    marginTop: 1,
   },
   title: {
     color: '#1A2D4E',
     fontFamily: 'Roboto-Medium',
-    fontSize: 20,
+    fontSize: 28,
+    marginBottom: 2,
+    marginLeft: 3
   },
 });
 
