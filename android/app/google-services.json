@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "595570170246",
+    "project_id": "react-health",
+    "storage_bucket": "react-health.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595570170246:android:ea1daadcd33f1511a6f407",
+        "android_client_info": {
+          "package_name": "com.reacthealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595570170246-cslarn4hsh3reh7imdjvhuv8k2rvra7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIopsdTUTxAQoCO-gUkUgOG2limK3HXd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595570170246-cslarn4hsh3reh7imdjvhuv8k2rvra7g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,21 @@
+export const AppTheme = {
+  colorPrimary: '#1A2D4E',
+  backgroundGradientHome: [
+    '#E5ECFF',
+    '#E5ECFF',
+    '#E5ECFF',
+    '#E5ECFF',
+    '#E5ECFF',
+    '#C2D2FF',
+    '#C2D2FF',
+    '#C2D2FF',
+    '#99B4FF',
+    '#99B4FF',
+  ],
+  alarmCardColors: 'white',
+  topBarColor: '#E5ECFF',
+  buttonTextSetAlarm: 'white',
+  buttonBackgroundSetAlarm: '#A5D1DF',
+  buttonBackgroundPressedSetAlarm: '#465C69',
+  buttonBackgroundDisabledSetAlarm: '#466060',
+};
