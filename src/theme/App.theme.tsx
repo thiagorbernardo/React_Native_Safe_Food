@@ -12,10 +12,12 @@ export const AppTheme = {
     '#99B4FF',
     '#99B4FF',
   ],
+  titleStyles : {
+    color: "#1A2D4E",
+    fontFamily: 'SawtonCircular-Thin',
+    letterSpacing: 1,
+  },
+  backgroundFoodDetails : '#E5ECFF',
   alarmCardColors: 'white',
   topBarColor: '#E5ECFF',
-  buttonTextSetAlarm: 'white',
-  buttonBackgroundSetAlarm: '#A5D1DF',
-  buttonBackgroundPressedSetAlarm: '#465C69',
-  buttonBackgroundDisabledSetAlarm: '#466060',
 };

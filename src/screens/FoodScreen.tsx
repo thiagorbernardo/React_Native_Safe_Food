@@ -3,11 +3,12 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import LottieView from 'lottie-react-native';
 import {Searchbar} from 'react-native-paper';
 import moment from 'moment';
-import CardFood from '../components/CardFood';
+import FoodCard from '../components/FoodCard';
 import {DailyMedicine, Food} from '../models/User.model';
 import * as Animatable from 'react-native-animatable';
 import {ResponseModel} from '../models/Response.model';
 import {URL_BACKEND} from '../models/Develop.env';
+import { foods } from '../models/Food.mock';
 
 export default function FoodScreen() {
   const [isLoading, setLoading] = useState(false);
@@ -55,12 +56,14 @@ export default function FoodScreen() {
             }}>
             {searchQuery == ''
               ? foods.map((food, key) => {
-                  return <CardFood {...food}></CardFood>;
+                  return <FoodCard {...food}></FoodCard>;
                 })
               : foods
-                  .filter((food) => food.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                  .filter((food) =>
+                    food.name.toLowerCase().includes(searchQuery.toLowerCase()),
+                  )
                   .map((food, key) => {
-                    return <CardFood {...food}></CardFood>;
+                    return <FoodCard {...food}></FoodCard>;
                   })}
           </View>
         </ScrollView>
@@ -92,99 +95,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-const foods = [
-  {
-    id: '12j3123',
-    key: 0,
-    name: 'Hamburguer',
-    price: 'R$ 20,00',
-    category: 'Fast Food',
-    img: 'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
-  },
-  {
-    id: '12j3123',
-    key: 1,
-    name: 'Hot Roll',
-    price: 'R$ 12,99',
-    category: 'Japanese',
-    img:
-      'https://imperialsushi.com.br/wp-content/uploads/2020/05/ROLL_HOTPHILADELPHIACROC.png',
-  },
-  {
-    id: '12j3123',
-    key: 2,
-    name: 'Yakisoba',
-    price: 'R$ 19,90',
-    category: 'Japanese',
-    img:
-      'https://www.ikesushi.com.br/_imagens/culinaria-chinesa/yakisoba-tradicional.png',
-  },
-  {
-    id: '12j3123',
-    key: 3,
-    name: 'Temaki',
-    price: 'R$ 14,99',
-    category: 'Japanese',
-    img:
-      'https://lh3.googleusercontent.com/proxy/bgw4h6XlOIbYOQ4UJOPD15qsEA5-apk6sRQAPdCQsjAaU80IKST1GcpPfXMSYOXE8wL6CN6FrytGnnmx3U3Hbs8o29p5BMS4st5GwztQMhbxuqJyR0TH34x3s70iVhg6fR42cDenTf29j4lNoL6XIvgz',
-  },
-  {
-    id: '12j3123',
-    key: 4,
-    name: 'Sushi',
-    price: 'R$ 13,99',
-    category: 'Japanese',
-    img: 'https://www.transparentpng.com/thumb/sushi/zcfCRy-sushi-vector.png',
-  },
-  {
-    id: '12j3123',
-    key: 5,
-    name: 'Hamburguer',
-    price: 'R$ 10,00',
-    category: 'Fast Food',
-    img: 'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
-  },
-  {
-    id: '12j3123',
-    key: 6,
-    name: 'Hamburguer',
-    price: 'R$ 10,00',
-    category: 'Fast Food',
-    img: 'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
-  },
-  {
-    id: '12j3123',
-    key: 7,
-    name: 'Hamburguer',
-    price: 'R$ 10,00',
-    category: 'Fast Food',
-    img: 'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
-  },
-  {
-    id: '12j3123',
-    key: 8,
-    name: 'Hamburguer',
-    price: 'R$ 10,00',
-    category: 'Fast Food',
-    img: 'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
-  },
-  {
-    id: '12j3123',
-    key: 9,
-    name: 'Hamburguer',
-    price: 'R$ 10,00',
-    category: 'Fast Food',
-    img: 'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
-  },
-  {
-    id: '12j3123',
-    key: 10,
-    name: 'Hamburguer',
-    price: 'R$ 10,00',
-    category: 'Fast Food',
-    img: 'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
-  },
-];
 
 //TODO: Sort
 // .sort((a, b) => {

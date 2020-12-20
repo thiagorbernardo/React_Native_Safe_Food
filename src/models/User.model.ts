@@ -12,9 +12,11 @@ export interface Food {
   id: string;
   key: number;
   name: string;
+  description: string;
   price: string;
   category: string;
-  img: string;
+  thumb: string;
+  img: string[];
 };
 
 export interface DailyMedicine {

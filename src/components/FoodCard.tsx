@@ -17,26 +17,32 @@ import moment from 'moment';
 import {LocalNotification} from '../services/LocalPushController';
 import {URL_BACKEND} from '../models/Develop.env';
 import {ResponseModel} from '../models/Response.model';
+import {useNavigation, StackActions} from '@react-navigation/native';
 
-export default function CardFood(food: Food) {
+export default function FoodCard(food: Food) {
+  const navigation = useNavigation();
+  const pushAction = StackActions.push('FoodDetails', {food: food});
+
   return (
     <>
-      <Animatable.View
-        animation="slideInDown"
-        iterationCount={1}
-        direction="alternate"
-        style={styles.cardView}>
-        <View>
-          <Image
-            source={{
-              uri: food.img,
-            }}
-            style={styles.image}
-          />
-          <Text style={styles.foodName}>{food.name}</Text>
-          <Text style={styles.foodPrice}>{food.price}</Text>
-        </View>
-      </Animatable.View>
+      <TouchableWithoutFeedback onPress={() => navigation.dispatch(pushAction)}>
+        <Animatable.View
+          animation="slideInDown"
+          iterationCount={1}
+          direction="alternate"
+          style={styles.cardView}>
+          <View>
+            <Image
+              source={{
+                uri: food.thumb,
+              }}
+              style={styles.image}
+            />
+            <Text style={styles.foodName}>{food.name}</Text>
+            <Text style={styles.foodPrice}>{food.price}</Text>
+          </View>
+        </Animatable.View>
+      </TouchableWithoutFeedback>
     </>
   );
 }
@@ -58,22 +64,18 @@ const styles = StyleSheet.create({
   image: {
     width: 110,
     height: 110,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
   },
   foodName: {
+    ...AppTheme.titleStyles,
     alignSelf: 'center',
-    color: AppTheme.colorPrimary,
-    fontFamily: 'SawtonCircular-Thin',
     fontSize: 17,
-    letterSpacing: 1
   },
   foodPrice: {
+    ...AppTheme.titleStyles,
     alignSelf: 'center',
-    color: AppTheme.colorPrimary,
-    fontFamily: 'SawtonCircular-Thin',
     fontSize: 13,
     marginBottom: 2,
-    letterSpacing: 1
   },
 });
 // const setDailyPillTaken = async (id: string) => {
