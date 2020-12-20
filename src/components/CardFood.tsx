@@ -58,12 +58,14 @@ const styles = StyleSheet.create({
   image: {
     width: 110,
     height: 110,
+    resizeMode: 'contain'
   },
   foodName: {
     alignSelf: 'center',
     color: AppTheme.colorPrimary,
     fontFamily: 'SawtonCircular-Thin',
     fontSize: 17,
+    letterSpacing: 1
   },
   foodPrice: {
     alignSelf: 'center',
@@ -71,6 +73,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SawtonCircular-Thin',
     fontSize: 13,
     marginBottom: 2,
+    letterSpacing: 1
   },
 });
 // const setDailyPillTaken = async (id: string) => {
