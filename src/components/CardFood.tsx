@@ -24,14 +24,18 @@ export default function CardFood(food: Food) {
       <Animatable.View
         animation="slideInDown"
         iterationCount={1}
-        direction="alternate">
-          <View style={styles.cardView}>
-            <Image source = {{uri:'https://png.pngtree.com/png-clipart/20190516/original/pngtree-healthy-food-png-image_3776802.jpg'}}/>
-            {/* <Text>
-            {food.name}
-            {food.img}
-            </Text> */}
-          </View>
+        direction="alternate"
+        style={styles.cardView}>
+        <View>
+          <Image
+            source={{
+              uri: food.img,
+            }}
+            style={styles.image}
+          />
+          <Text style={styles.foodName}>{food.name}</Text>
+          <Text style={styles.foodPrice}>{food.price}</Text>
+        </View>
       </Animatable.View>
     </>
   );
@@ -39,14 +43,35 @@ export default function CardFood(food: Food) {
 const styles = StyleSheet.create({
   cardView: {
     backgroundColor: AppTheme.alarmCardColors,
-    borderRadius: 30,
+    borderRadius: 35,
     padding: 10,
     marginLeft: 18,
+    marginRight: 6,
     marginTop: 18,
     height: 160,
-    width: 180,
+    width: 165,
     elevation: 12,
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  image: {
+    width: 110,
+    height: 110,
+  },
+  foodName: {
+    alignSelf: 'center',
+    color: AppTheme.colorPrimary,
+    fontFamily: 'SawtonCircular-Thin',
+    fontSize: 17,
+  },
+  foodPrice: {
+    alignSelf: 'center',
+    color: AppTheme.colorPrimary,
+    fontFamily: 'SawtonCircular-Thin',
+    fontSize: 13,
+    marginBottom: 2,
+  },
 });
 // const setDailyPillTaken = async (id: string) => {
 //   const today = moment().format('DD-MM-YYYY');

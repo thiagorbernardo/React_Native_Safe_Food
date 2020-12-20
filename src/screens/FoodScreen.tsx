@@ -38,12 +38,9 @@ export default function FoodScreen() {
               flexWrap: 'wrap',
               marginBottom: 30,
             }}>
-              <Image source = {{uri:'https://png.pngtree.com/png-clipart/20190516/original/pngtree-healthy-food-png-image_3776802.jpg'}}/>
-            {/* {foods.map((food, key) => {
+            {foods.map((food, key) => {
               return <CardFood {...food}></CardFood>;
-            })} */}
-            <Image source = {{uri:'https://png.pngtree.com/png-clipart/20190516/original/pngtree-healthy-food-png-image_3776802.jpg'}}>
-            </Image>
+            })}
           </View>
         </ScrollView>
       )}
@@ -79,99 +76,99 @@ const foods = [
     id: '12j3123',
     key: 0,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
   {
     id: '12j3123',
     key: 1,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
   {
     id: '12j3123',
     key: 2,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
   {
     id: '12j3123',
     key: 3,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
   {
     id: '12j3123',
     key: 4,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
   {
     id: '12j3123',
     key: 5,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
   {
     id: '12j3123',
     key: 6,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
   {
     id: '12j3123',
     key: 7,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
   {
     id: '12j3123',
     key: 8,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
   {
     id: '12j3123',
     key: 9,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
   {
     id: '12j3123',
     key: 10,
     name: 'Hamburguer',
-    price: 'R$ 10',
+    price: 'R$ 10,00',
     category: 'Fast Food',
     img:
-      'https://toppng.com/uploads/preview/hamburguer-em-png-imagens-de-hamburguer-11562871155d7iwospssu.png',
+      'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
   },
 ];
