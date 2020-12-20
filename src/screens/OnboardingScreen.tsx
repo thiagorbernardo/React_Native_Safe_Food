@@ -60,47 +60,47 @@ const OnboardingScreen = ({navigation}: any) => {
       NextButtonComponent={Next}
       DoneButtonComponent={Done}
       DotComponent={Dots}
-      onSkip={() => navigation.replace('Login')}
-      onDone={() => navigation.replace('Login')}
+      onSkip={() => navigation.replace('Home')}
+      onDone={() => navigation.replace('Home')}
       pages={[
         {
-          backgroundColor: '#D5F3FF',
+          backgroundColor: '#ff8880',
           image: (
             <LottieView
-              source={require('../assets/lottie/human-exercise1.json')}
+              source={require('../assets/lottie/swiping-app.json')}
               autoPlay
               resizeMode="contain"
               style={styles.lottie}
             />
           ),
-          title: 'Faça exercícios',
-          subtitle: 'Assim Você Ajuda Seu Corpo a Manter o Transplante',
+          title: 'Bem vindo ao Safe Food',
+          subtitle: 'Aplicativo de delivery de comida para a hora da fome',
         },
         {
-          backgroundColor: '#c975c5',
+          backgroundColor: '#8fffbd',
           image: (
             <LottieView
-              source={require('../assets/lottie/doctor-patient.json')}
+              source={require('../assets/lottie/falling-salad.json')}
               autoPlay
               resizeMode="contain"
               style={styles.lottie}
             />
           ),
-          title: 'Mantenha a Alimentação',
-          subtitle: 'colocar texto',
+          title: 'Simples e Fácil',
+          subtitle: 'Com simplicidade e praticidade entregaremos sua comida predileta',
         },
         {
-          backgroundColor: '#ffbae0',
+          backgroundColor: '#91bdff',
           image: (
             <LottieView
-              source={require('../assets/lottie/phone-exercise.json')}
+              source={require('../assets/lottie/food-delivery.json')}
               autoPlay
               resizeMode="contain"
               style={styles.lottie}
             />
           ),
-          title: 'Tome os Remédios',
-          subtitle: 'Irei Te Lembrar Na Hora De Tomar Cada Remédio',
+          title: 'Iremos Chegar Até Você!',
+          subtitle: 'Atualmente estamos entregando apenas em Miracatu, na Gaeli.',
         },
       ]}
     />

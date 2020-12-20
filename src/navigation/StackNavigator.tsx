@@ -12,7 +12,7 @@ export default function StackNavigator() {
   return (
     <Stack.Navigator headerMode="none" initialRouteName="Home">
       <Stack.Screen name="Home" component={HomeScreen} />
-      {/* <Stack.Screen name="Onboarding" component={OnboardingScreen} /> */}
+      <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       {/* <Stack.Screen name="Loading" component={LoadingScreen} /> */}
       {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
     </Stack.Navigator>
