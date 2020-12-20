@@ -38,8 +38,7 @@ export default function FoodScreen() {
               flexWrap: 'wrap',
               marginBottom: 30,
             }}>
-              <Image source = {{uri:'https://png.pngtree.com/png-clipart/20190516/original/pngtree-healthy-food-png-image_3776802.jpg'}}>
-            </Image>
+              <Image source = {{uri:'https://png.pngtree.com/png-clipart/20190516/original/pngtree-healthy-food-png-image_3776802.jpg'}}/>
             {/* {foods.map((food, key) => {
               return <CardFood {...food}></CardFood>;
             })} */}

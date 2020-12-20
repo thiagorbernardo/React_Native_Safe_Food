@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto-Medium',
     fontSize: 28,
     marginBottom: 2,
-    marginLeft: 3
+    marginLeft: 22
   },
 });
 

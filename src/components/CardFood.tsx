@@ -26,8 +26,7 @@ export default function CardFood(food: Food) {
         iterationCount={1}
         direction="alternate">
           <View style={styles.cardView}>
-            <Image source = {{uri:'https://png.pngtree.com/png-clipart/20190516/original/pngtree-healthy-food-png-image_3776802.jpg'}}>
-            </Image>
+            <Image source = {{uri:'https://png.pngtree.com/png-clipart/20190516/original/pngtree-healthy-food-png-image_3776802.jpg'}}/>
             {/* <Text>
             {food.name}
             {food.img}
