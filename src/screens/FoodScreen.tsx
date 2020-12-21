@@ -14,21 +14,23 @@ import {AppTheme} from '../theme/App.theme';
 
 export default function FoodScreen() {
   const [isLoading, setLoading] = useState(false);
-  const [buttonSelected, setButtonSelected] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
     null,
   );
+  const [categoriesClicked, setCategoriesClicked] = useState<string[]>([]);
 
   const onChangeSearch = (query: string) => setSearchQuery(query);
 
   useEffect(() => {
-    console.log(buttonSelected);
-    if (!buttonSelected) {
-      console.log('setting')
-      setSelectedCategory(null);
+    let length: number = categoriesClicked.length;
+    if (length !== 0) {
+      if (categoriesClicked[length - 1] == categoriesClicked[length - 2]) {
+        setSelectedCategory(null);
+        setCategoriesClicked([]);
+      }
     }
-  }, [selectedCategory]);
+  }, [categoriesClicked]);
 
   const user = {
     name: 'Thiago',
@@ -72,7 +74,7 @@ export default function FoodScreen() {
     return (
       <TouchableOpacity
         onPress={() => {
-          setButtonSelected(!buttonSelected);
+          setCategoriesClicked([...categoriesClicked, item.id]);
           setSelectedCategory(item);
         }}
         style={{
@@ -81,7 +83,6 @@ export default function FoodScreen() {
           marginHorizontal: 14,
           backgroundColor: backgroundColor,
           borderRadius: 75,
-          // opacity: 0.5,
           elevation: 8,
         }}>
         <Text
