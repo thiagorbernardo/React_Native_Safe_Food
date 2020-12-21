@@ -1,15 +1,37 @@
 import * as React from 'react';
-import {Text, View} from 'react-native';
+import {Keyboard} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MainStackNavigator from './MainStackNavigator';
 import Icon from 'react-native-vector-icons/Feather';
 import CartStackNavigator from './CartStackNavigator';
 import {AppTheme} from '../theme/App.theme';
 import HomeScreen from '../screens/HomeScreen';
+import { useEffect, useState } from 'react';
 
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
+  
+  useEffect(() => {
+    Keyboard.addListener("keyboardDidShow", keyboardDidShow);
+    Keyboard.addListener("keyboardDidHide", keyboardDidHide);
+
+    // cleanup function
+    return () => {
+      Keyboard.removeListener("keyboardDidShow", keyboardDidShow);
+      Keyboard.removeListener("keyboardDidHide", keyboardDidHide);
+    };
+  }, []);
+
+  const keyboardDidShow = () => {
+    setKeyboardVisible(true);
+  };
+
+  const keyboardDidHide = () => {
+    setKeyboardVisible(false);
+  };
+
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
@@ -27,10 +49,10 @@ export default function TabNavigator() {
         },
       })}
       tabBarOptions={{
+        keyboardHidesTabBar: true,
         style: {
           position: 'absolute',
-          bottom: 20,
-          marginTop: 10,
+          bottom: keyboardVisible ? -2 : 20,
           left: 40,
           right: 40,
           borderRadius: 100,

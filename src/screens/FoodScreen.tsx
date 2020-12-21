@@ -103,7 +103,7 @@ export default function FoodScreen() {
           style={styles.lottieLoading}
         />
       ) : (
-        <ScrollView>
+        <ScrollView style={{marginBottom: 50}}>
           <Animatable.View
             animation="slideInDown"
             iterationCount={1}
