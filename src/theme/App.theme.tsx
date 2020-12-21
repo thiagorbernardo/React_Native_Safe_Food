@@ -20,4 +20,5 @@ export const AppTheme = {
   backgroundFoodDetails : '#E5ECFF',
   alarmCardColors: 'white',
   topBarColor: '#E5ECFF',
+  bottomBarColor: 'white'
 };

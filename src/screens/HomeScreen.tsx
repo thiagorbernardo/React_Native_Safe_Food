@@ -19,7 +19,7 @@ export default function HomeScreen() {
       <StatusBar backgroundColor="#E5ECFF" barStyle="dark-content" />
       <SafeAreaView style={styles.scrollView}>
         <>
-          <TopBar></TopBar>
+          <TopBar />
           <LinearGradient
             colors={AppTheme.backgroundGradientHome}
             style={{flex: 1}}>

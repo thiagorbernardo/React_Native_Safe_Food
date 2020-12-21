@@ -112,7 +112,7 @@ export default function FoodScreen() {
               placeholder="Procurar"
               onChangeText={onChangeSearch}
               value={searchQuery}
-              style={{marginBottom: 5, marginHorizontal: 10}}
+              style={{marginVertical: 5, marginHorizontal: 10, borderRadius: 100}}
             />
             {/* <Text style={styles.helloTitle}>Olá, {user.name}!</Text> */}
             <FlatList
