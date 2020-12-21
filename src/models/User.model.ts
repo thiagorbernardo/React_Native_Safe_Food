@@ -10,7 +10,6 @@ export interface User {
 
 export interface Food {
   id: string;
-  key: number;
   name: string;
   description: string;
   price: string;
@@ -19,11 +18,8 @@ export interface Food {
   img: string[];
 };
 
-export interface DailyMedicine {
-  name: string;
-  height?: number;
-  weight?: number;
-  email: string;
-  date: string;
-  medicines: Food[];
+export interface Category {
+  id:    string;
+  name:  string;
+  alias: string;
 }
