@@ -3,14 +3,14 @@ import {FlatList, ScrollView, StyleSheet, Text, View} from 'react-native';
 import LottieView from 'lottie-react-native';
 import {Searchbar} from 'react-native-paper';
 import moment from 'moment';
-import FoodCard from '../components/FoodCard';
-import {Food, Category} from '../models/User.model';
+import FoodCard from './FoodCard';
+import {Food, Category} from '../../models/User.model';
 import * as Animatable from 'react-native-animatable';
-import {ResponseModel} from '../models/Response.model';
-import {URL_BACKEND} from '../models/Develop.env';
-import {foods} from '../models/Food.mock';
+import {ResponseModel} from '../../models/Response.model';
+import {URL_BACKEND} from '../../models/Develop.env';
+import {foods} from '../../models/Food.mock';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {AppTheme} from '../theme/App.theme';
+import {AppTheme} from '../../theme/App.theme';
 
 export default function FoodScreen() {
   const [isLoading, setLoading] = useState(false);
@@ -97,7 +97,7 @@ export default function FoodScreen() {
     <>
       {isLoading ? (
         <LottieView
-          source={require('../assets/lottie/loading-plane.json')}
+          source={require('../../assets/lottie/loading-plane.json')}
           autoPlay
           resizeMode="contain"
           style={styles.lottieLoading}

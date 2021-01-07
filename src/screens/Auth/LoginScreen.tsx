@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import LottieView from 'lottie-react-native';
-import {AppTheme} from '../theme/App.theme';
+import {AppTheme} from '../../theme/App.theme';
 import auth from '@react-native-firebase/auth';
 
 export default function LoginScreen({navigation}: any) {

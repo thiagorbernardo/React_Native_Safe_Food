@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import HomeScreen from '../screens/HomeScreen';
-import FoodDetails from '../components/FoodDetails';
+import FoodDetails from '../screens/Food/FoodDetails';
 import { AppTheme } from '../theme/App.theme';
 import TabNavigator from './TabNavigator';
 

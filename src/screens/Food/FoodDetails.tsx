@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Image, StyleSheet, Text, View, Dimensions} from 'react-native';
 import {IconButton} from 'react-native-paper';
-import {Food} from '../models/User.model';
-import {AppTheme} from '../theme/App.theme';
+import {Food} from '../../models/User.model';
+import {AppTheme} from '../../theme/App.theme';
 import {useNavigation, StackActions} from '@react-navigation/native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -77,6 +77,7 @@ export default function FoodDetails({navigation, route}: any) {
           bottom: 0,
         }}
         onPress={async () => {
+          navigation.navigate('Carrinho')
           console.log(`Adding`);
         }}>
         Adicionar

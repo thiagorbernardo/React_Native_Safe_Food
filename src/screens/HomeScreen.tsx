@@ -11,7 +11,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import TopBar from '../components/TopBar';
 
 import {AppTheme} from '../theme/App.theme';
-import FoodScreen from './FoodScreen';
+import FoodScreen from './Food/FoodScreen';
 
 export default function HomeScreen() {
   return (

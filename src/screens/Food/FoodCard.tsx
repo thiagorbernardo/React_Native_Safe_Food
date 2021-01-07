@@ -8,15 +8,15 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {IconButton} from 'react-native-paper';
-import {Food} from '../models/User.model';
-import {AppTheme} from '../theme/App.theme';
+import {Food} from '../../models/User.model';
+import {AppTheme} from '../../theme/App.theme';
 import * as Animatable from 'react-native-animatable';
 import LottieView from 'lottie-react-native';
 import AwesomeButton from 'react-native-really-awesome-button';
 import moment from 'moment';
-import {LocalNotification} from '../services/LocalPushController';
-import {URL_BACKEND} from '../models/Develop.env';
-import {ResponseModel} from '../models/Response.model';
+import {LocalNotification} from '../../services/LocalPushController';
+import {URL_BACKEND} from '../../models/Develop.env';
+import {ResponseModel} from '../../models/Response.model';
 import {useNavigation, StackActions} from '@react-navigation/native';
 
 export default function FoodCard(food: Food) {
