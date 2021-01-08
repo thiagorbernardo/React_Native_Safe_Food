@@ -4,16 +4,16 @@ import { windowWidth } from '../constants/constants';
 import {AppTheme} from '../theme/App.theme';
 
 const BigRedButton = (props: any) => {
-  const {title, execute, style} = props;
+  const {title, execute, style, disabled} = props;
 
   return (
     <AwesomeButton
       stretch={true}
-      backgroundColor={'red'}
+      backgroundColor={disabled ? 'rgba(26, 45, 78, 0.4)' : 'red'}
       backgroundActive={AppTheme.colorPrimary}
       textColor={'white'}
       borderRadius={10}
-      disabled={false}
+      disabled={disabled || false}
       style={
         style
           ? style

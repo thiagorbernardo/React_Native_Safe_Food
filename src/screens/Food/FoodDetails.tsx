@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import {Image, StyleSheet, Text, View, Dimensions} from 'react-native';
-import {IconButton} from 'react-native-paper';
 import {Food} from '../../models/User.model';
 import {AppTheme} from '../../theme/App.theme';
-import {useNavigation, StackActions} from '@react-navigation/native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {ScrollView} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import AwesomeButton from 'react-native-really-awesome-button';
+import BigRedButton from '../../components/BigRedButton';
+
+/* Redux */
+import { addFood } from '../../redux/actions';
+import { RootState } from '../../redux/store'
 
 const {windowWidth, windowHeight} = {
   windowWidth: Dimensions.get('window').width,
@@ -17,6 +20,12 @@ const {windowWidth, windowHeight} = {
 export default function FoodDetails({navigation, route}: any) {
   const food: Food = route.params.food;
   const [activeSlide, setActiveSlide] = useState(0);
+
+  const dispatch = useDispatch();
+  // const { allFoodsOnCart, allFoodsOnCartByIds } = useSelector((state : typeof RootState) => state.foods);
+
+  // console.log(allFoodsOnCart)
+  // console.log(allFoodsOnCartByIds)
 
   const renderItem = ({item, index}: any) => {
     return (
@@ -62,26 +71,13 @@ export default function FoodDetails({navigation, route}: any) {
           <Text style={styles.foodPrice}>{food.description}</Text>
         </View>
       </SafeAreaView>
-      <AwesomeButton
-        stretch={true}
-        backgroundColor={'red'}
-        backgroundActive={AppTheme.colorPrimary}
-        textColor={'white'}
-        borderRadius={10}
-        disabled={false}
-        style={{
-          marginBottom: 14,
-          marginHorizontal: 10,
-          width: windowWidth - 20,
-          position: 'absolute',
-          bottom: 0,
-        }}
-        onPress={async () => {
-          navigation.navigate('Carrinho')
+      <BigRedButton title={"Adicionar"}
+        execute={async () => {
+          navigation.navigate('Carrinho');
+          dispatch(addFood(food))
           console.log(`Adding`);
-        }}>
-        Adicionar
-      </AwesomeButton>
+        }}
+      />
     </>
   );
 }

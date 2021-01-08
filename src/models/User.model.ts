@@ -18,6 +18,10 @@ export interface Food {
   img: string[];
 };
 
+export interface FoodCardItem {
+  content:  Food;
+  quantity: number;
+}
 export interface Category {
   id:    string;
   name:  string;
