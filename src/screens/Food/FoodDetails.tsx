@@ -73,8 +73,8 @@ export default function FoodDetails({navigation, route}: any) {
       </SafeAreaView>
       <BigRedButton title={"Adicionar"}
         execute={async () => {
+          await dispatch(addFood(food))
           navigation.navigate('Carrinho');
-          dispatch(addFood(food))
           console.log(`Adding`);
         }}
       />

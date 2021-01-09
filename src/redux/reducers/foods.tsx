@@ -1,4 +1,4 @@
-import {ADD_FOOD, INCREASE_FOOD, REDUCE_FOOD} from '../actionTypes';
+import {ADD_FOOD, REDUCE_FOOD} from '../actionTypes';
 
 const initialState = {
   allFoodsOnCart: [],
@@ -36,32 +36,43 @@ export default function (
         },
       };
     }
-    // case INCREASE_FOOD: {
-    //   const {id} = action.payload;
-    //   return {
-    //     ...state,
-    //     byIds: {
-    //       ...state.byIds,
-    //       [id]: {
-    //         ...state.byIds[id],
-    //         completed: !state.byIds[id].completed,
-    //       },
-    //     },
-    //   };
-    // }
-    // case REDUCE_FOOD: {
-    //   const {id} = action.payload;
-    //   return {
-    //     ...state,
-    //     byIds: {
-    //       ...state.byIds,
-    //       [id]: {
-    //         ...state.byIds[id],
-    //         completed: !state.byIds[id].completed,
-    //       },
-    //     },
-    //   };
-    // }
+    case REDUCE_FOOD: {
+      const {id, content} = action.payload;
+      const foodsIds: string[] = state.allFoodsOnCart;
+
+      let quantity: number = 0;
+      if (foodsIds.length != 0) {
+        if (foodsIds.includes(id)) {
+          // @ts-ignore
+          quantity = state.allFoodsOnCartByIds[id].quantity;
+          quantity -= 1;
+        }
+      }
+      if (quantity == 0) {
+        const index = foodsIds.indexOf(id);
+        if (index > -1) {
+          foodsIds.splice(index, 1);
+          // @ts-ignore
+          delete state.allFoodsOnCartByIds[id];
+        }
+      }
+      return {
+        ...state,
+        allFoodsOnCart: [...foodsIds],
+        allFoodsOnCartByIds:
+          quantity != 0
+            ? {
+                ...state.allFoodsOnCartByIds,
+                [id]: {
+                  content,
+                  quantity: quantity,
+                },
+              }
+            : {
+                ...state.allFoodsOnCartByIds,
+              },
+      };
+    }
     default:
       return state;
   }
