@@ -12,6 +12,7 @@ import {addFood, reduceFood} from '../../redux/actions';
 import {removeMaskFromPrice} from '../../common';
 import {Switch} from 'react-native-gesture-handler';
 import {CustomAlert} from '../../components/CustomAlert';
+import Geolocation from '@react-native-community/geolocation';
 //https://api.whatsapp.com/send?phone=5547984596314&text=test%20test%20test%20test%20test%20test%20
 
 export default function Cart() {
@@ -19,6 +20,8 @@ export default function Cart() {
   const [userAddress, setUserAddress] = useState<string>(
     'R. Cândido dos Santos Coelho, 91',
   );
+  const [currentPosition, setCurrentPosition] = useState();
+
   const [isSwitchOn, setIsSwitchOn] = useState(false);
 
   const {allFoodsOnCart, allFoodsOnCartByIds} = useSelector(
@@ -80,8 +83,27 @@ export default function Cart() {
       });
   };
 
-  const onToggleSwitch = () => {
+  // const getAddressByGeolocation = () => https://nominatim.openstreetmap.org/reverse?lat=-24.2919909&lon=-47.45248941&format=json
+
+  const onToggleSwitch = async() => {
     setIsSwitchOn(!isSwitchOn);
+    if (!isSwitchOn){
+      CustomAlert(
+        'Locais de entrega',
+        'Só entregamos no centro de Miracatu, da Vila Nova até o Jardim Yolanda.',
+      );
+      await Geolocation.getCurrentPosition(
+        position => {
+          console.log(position)
+          // const initialPosition = JSON.stringify(position);
+          // setCurrentPosition({initialPosition});
+        },
+        error => console.log(error),//Alert.alert('Error', JSON.stringify(error))
+        {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
+      );
+      // window.open("https://maps.google.com/maps?daddr=-24.2919909,-47.45248941&amp;ll=")
+    }
+      
   };
 
   // console.log(allFoodsOnCart);
@@ -182,6 +204,8 @@ export default function Cart() {
         <BigRedButton
           title={'Finalizar Pedido'}
           execute={async () => {
+            await Geolocation.requestAuthorization();
+
             await sendOrderWPP();
             console.log(`Finish Order`);
           }}
