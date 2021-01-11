@@ -121,17 +121,19 @@ export default function FoodScreen() {
               renderItem={renderCategories}
               keyExtractor={(item) => item.id}
               extraData={selectedCategory}
-              style={{alignSelf: 'flex-start', marginLeft: 8}}
             />
             <Text style={styles.textTitle}>Aqui estão as opções</Text>
           </Animatable.View>
           <View
             style={{
+              justifyContent: 'space-evenly',
               flexDirection: 'row',
               flexWrap: 'wrap',
+              flexGrow: 0,
               marginBottom: 30,
             }}>
             {renderFoods()}
+            {foods.length % 2 != 0 ? <View style={{width: 190}}></View> : null}
           </View>
         </ScrollView>
       )}
@@ -144,7 +146,6 @@ const styles = StyleSheet.create({
     color: '#1A2D4E',
     fontFamily: 'Roboto-Bold',
     fontSize: 23,
-    alignItems: 'center',
     marginLeft: 20,
     marginTop: 10,
     marginBottom: 10,
@@ -153,7 +154,6 @@ const styles = StyleSheet.create({
     color: '#1A2D4E',
     fontFamily: 'Roboto-Bold',
     fontSize: 25,
-    alignItems: 'center',
     marginLeft: 20,
     marginTop: 10,
     marginBottom: 10,

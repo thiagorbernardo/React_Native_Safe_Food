@@ -83,20 +83,5 @@ export const foods: Food[] = [
             'https://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/BigKing_detail.png',
             'https://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/BigKing_detail.png',
         ],
-    },
-    {
-        id: "37823f3e-1b09-4b0a-b94a-c23294f36c1b",
-        name: 'Hamburguer',
-        description: "",
-        price: 'R$ 10,00',
-        category: 'Fast Food',
-        thumb: 'https://assets.stickpng.com/images/5882488ae81acb96424ffaaf.png',
-        img: [
-            'https://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/BigKing_detail.png',
-            'https://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/BigKing_detail.png',
-            'https://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/BigKing_detail.png',
-            'https://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/BigKing_detail.png',
-            'https://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.br/files/BigKing_detail.png',
-        ],
-    },
+    }
 ];

@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {Linking, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  Linking,
+  PermissionsAndroid,
+  PermissionStatus,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {IconButton, List} from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
 import BigRedButton from '../../components/BigRedButton';
@@ -12,15 +20,17 @@ import {addFood, reduceFood} from '../../redux/actions';
 import {removeMaskFromPrice} from '../../common';
 import {Switch} from 'react-native-gesture-handler';
 import {CustomAlert} from '../../components/CustomAlert';
-import Geolocation from '@react-native-community/geolocation';
-//https://api.whatsapp.com/send?phone=5547984596314&text=test%20test%20test%20test%20test%20test%20
+import Geolocation, {
+  GeolocationResponse,
+} from '@react-native-community/geolocation';
+import {checkPermissions} from '../../services/PermissionsController';
 
 export default function Cart() {
   const [cartItens, setCartItens] = useState<FoodCardItem[]>([]);
   const [userAddress, setUserAddress] = useState<string>(
     'R. Cândido dos Santos Coelho, 91',
   );
-  const [currentPosition, setCurrentPosition] = useState();
+  const [currentPosition, setCurrentPosition] = useState<GeolocationResponse>();
 
   const [isSwitchOn, setIsSwitchOn] = useState(false);
 
@@ -44,6 +54,24 @@ export default function Cart() {
     }
   }, [allFoodsOnCart]);
 
+  useEffect(() => {
+    if (isSwitchOn) {
+      (async function getPosition() {
+        if ((await checkPermissions()) === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log('Perm granted');
+          await Geolocation.getCurrentPosition(
+            async (position) => {
+              console.log(position);
+              await setCurrentPosition(position);
+            },
+            (error) => console.log(error),
+            {enableHighAccuracy: false, timeout: 20000, maximumAge: 1000},
+          );
+        }
+      })();
+    }
+  }, [isSwitchOn]);
+
   const countTotalOrder = () => {
     const reducer = (accumulator: number, currentValue: number) =>
       accumulator + currentValue;
@@ -58,16 +86,20 @@ export default function Cart() {
     if (isSwitchOn) roundTotal += 2;
     return `R$ ${roundTotal}`;
   };
-
+  if (currentPosition)
+    console.log(
+      `https://www.google.com/maps/search/?api=1&query=${currentPosition.coords.latitude},${currentPosition.coords.longitude}`,
+    );
   const sendOrderWPP = () => {
     let whatsAppMsg: string =
       'Olá, eu vou querer:\n\n' +
       cartItens
         .map((item: FoodCardItem) => `${item.quantity}x ${item.content.name}`)
         .join('\n');
-    if (isSwitchOn)
-      whatsAppMsg += `\n\n*Estou no endereço: ${userAddress}*\n\n😋`;
-    else whatsAppMsg += `\n\n*Irei buscar o pedido*\n😋`;
+    if (currentPosition && isSwitchOn) {
+      const mapsLocation = encodeURIComponent(`https://www.google.com/maps/search/?api=1&query=${currentPosition.coords.latitude},${currentPosition.coords.longitude}`);
+      whatsAppMsg += `\n\n*Estou no endereço: ${userAddress}*😋\n${mapsLocation}\n`;
+    } else whatsAppMsg += `\n\n*Irei buscar o pedido*\n😋`;
 
     const phone = '+5541987972390';
 
@@ -83,31 +115,15 @@ export default function Cart() {
       });
   };
 
-  // const getAddressByGeolocation = () => https://nominatim.openstreetmap.org/reverse?lat=-24.2919909&lon=-47.45248941&format=json
-
-  const onToggleSwitch = async() => {
+  const onToggleSwitch = async () => {
     setIsSwitchOn(!isSwitchOn);
-    if (!isSwitchOn){
+    if (!isSwitchOn) {
       CustomAlert(
         'Locais de entrega',
         'Só entregamos no centro de Miracatu, da Vila Nova até o Jardim Yolanda.',
       );
-      await Geolocation.getCurrentPosition(
-        position => {
-          console.log(position)
-          // const initialPosition = JSON.stringify(position);
-          // setCurrentPosition({initialPosition});
-        },
-        error => console.log(error),//Alert.alert('Error', JSON.stringify(error))
-        {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
-      );
-      // window.open("https://maps.google.com/maps?daddr=-24.2919909,-47.45248941&amp;ll=")
     }
-      
   };
-
-  // console.log(allFoodsOnCart);
-  // console.log(allFoodsOnCartByIds);
 
   return (
     <>
@@ -202,14 +218,20 @@ export default function Cart() {
         )}
 
         <BigRedButton
-          title={'Finalizar Pedido'}
+          title={
+            (isSwitchOn && currentPosition) || !isSwitchOn
+              ? 'Finalizar Pedido'
+              : 'Precisamos da sua Localização'
+          }
           execute={async () => {
-            await Geolocation.requestAuthorization();
-
             await sendOrderWPP();
             console.log(`Finish Order`);
           }}
-          disabled={allFoodsOnCart.length == 0 ? true : false}
+          disabled={
+            allFoodsOnCart.length === 0 || (isSwitchOn && !currentPosition)
+              ? true
+              : false
+          }
           style={{
             marginHorizontal: 10,
             width: windowWidth - 20,
